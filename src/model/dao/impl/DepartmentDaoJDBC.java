@@ -2,6 +2,7 @@ package model.dao.impl;
 
 import db.DB;
 import db.DbException;
+import db.DbIntegityException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -77,7 +78,7 @@ public class DepartmentDaoJDBC implements DepartmentDao {
             }
         } 
         catch (SQLException e) {
-            throw new DbException( e.getMessage());
+            throw new DbIntegityException( e.getMessage());
         }
         finally{
             DB.closeStatement(ps);
